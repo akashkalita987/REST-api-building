@@ -63,7 +63,15 @@ class _MyHomePageState extends State<MyHomePage> {
             Text(data!.age.toString()),
             Text(data!.married.toString()),
             Text(data!.kids.toString()),
+
+            Row(
+              children: [
+                Text(data!.hobbies![0].toString()),
+                Text(data!.hobbies![1].toString()),
+              ],
+            )
           ],
+          
         ),
       ),
     );
