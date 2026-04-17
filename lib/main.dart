@@ -28,7 +28,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  late User data;
+  User? data;
 
   @override
   void initState() {
@@ -40,7 +40,11 @@ class _MyHomePageState extends State<MyHomePage> {
     var d = await rootBundle.loadString("assets/json.json");
     data = userFromJson(d);
 
-    print(data.name);
+    setState(() {
+      data = userFromJson(d);
+    });
+
+    print(data?.name);
   }
 
   Widget build(BuildContext context) {
@@ -49,10 +53,19 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text("Local Json"),
       ),
-      body: Center(child: Column(children: const [
-
+      body: data == null 
+      ? const Center(child: CircularProgressIndicator())
+      : Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(data!.name.toString()),
+            Text(data!.age.toString()),
+            Text(data!.married.toString()),
+            Text(data!.kids.toString()),
           ],
-        )),
+        ),
+      ),
     );
   }
 }
