@@ -53,27 +53,28 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text("Local Json"),
       ),
-      body: data == null 
-      ? const Center(child: CircularProgressIndicator())
-      : Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(data!.name.toString()),
-            Text(data!.age.toString()),
-            Text(data!.married.toString()),
-            Text(data!.kids.toString()),
+      body: data == null
+          ? const Center(child: CircularProgressIndicator())
+          : Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(data!.name.toString()),
+                  Text(data!.age.toString()),
+                  Text(data!.married.toString()),
+                  Text(data!.kids.toString()),
 
-            Row(
-              children: [
-                Text(data!.hobbies![0].toString()),
-                Text(data!.hobbies![1].toString()),
-              ],
-            )
-          ],
-          
-        ),
-      ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(data!.hobbies![0].toString()),
+                      Text(data!.hobbies![1].toString()),
+                    ],
+                  ),
+                ],
+              ),
+            ),
     );
   }
 }
