@@ -1,9 +1,0 @@
-{
-    "name": "akash",
-    "age": 21,
-    "married":false,
-    "kids": null,
-    "hobbies" : [
-        "coding" ,"web surffing"
-    ]
-}
